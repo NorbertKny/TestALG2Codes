@@ -16,7 +16,9 @@ public class Test2 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        System.out.println("Hello world");
         double pie = Math.PI;
         String s = "";
+        //very sus
     }
 }
