@@ -26,5 +26,6 @@ public class MoneyBoxTest {
         System.out.println(test.toString());
         test.Add_koruny_dvoukoruny(2, 3);
         System.out.println(test.toString());
+        System.out.println(test.getName());
     }
 }
