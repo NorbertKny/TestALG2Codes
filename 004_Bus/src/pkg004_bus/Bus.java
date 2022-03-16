@@ -25,12 +25,14 @@ public class Bus {
         this.sedadla = sedadla;
         this.linka = linka;
         this.spolecnost = spolecnost;
+        this.cestujici = 0;
     }
     
     public Bus(){
         this.sedadla = 40;
         this.linka = 0;
         this.spolecnost = "";
+        this.cestujici = 0;
     }
     
     public void setLinka(int linka) {
@@ -82,5 +84,8 @@ public class Bus {
     /*@Override
     public String toString(){
         return "Bus {" + "cislo linky-" + linka + ", spolecnost-" + spolecnost + ", pocet sedadel-" + sedadla + ", pocet cestujicich-" + cestujici +"}";
+    }*/
+    /*public void CestujiciNastupSecure(int pocet){
+        this.cestujici = cestujici + pocet;
     }*/
 }

@@ -18,7 +18,7 @@ public class BusApp {
     public static void main(String[] args) {
         // TODO code application logic here
         Scanner sc = new Scanner(System.in);
-        Bus tulBus = new Bus(40,15,"DPMLJ");
+        Bus tulBus = new Bus(41,15,"DPMLJ");
         int nastup, vystup;
         for (int i = 1; i < 6; i++) {
             if(i == 5){
