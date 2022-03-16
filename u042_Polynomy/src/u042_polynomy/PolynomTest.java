@@ -24,6 +24,9 @@ public class PolynomTest {
         System.out.println(test2.toString());
         
         Polynom p0 = Polynom.getInstanceFromReverted(2,3,4,5);
+        System.out.println(p0.toString());
+        System.out.println(p0.diff());
+        
     }
     
 }

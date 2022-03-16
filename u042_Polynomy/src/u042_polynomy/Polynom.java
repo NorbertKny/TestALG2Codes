@@ -61,6 +61,22 @@ public class Polynom {
     public static Polynom getInstanceFromNonRevertedArray(int... a){
         return new Polynom(a);
     }
+    //**************************************************************************
+    public int[] getPolynom(){
+        return Arrays.copyOf(pole,pole.length);
+    }
+    
+    public Polynom diff(){
+        int[] tmp = new int[pole.length-1];
+        for (int i = 0; i < tmp.length; i++) {
+            tmp[i] = pole[i+1]*(i+1);
+        }
+        return new Polynom(tmp);
+    }
+    
+    public int getKoeff(int exponent){
+        return pole[exponent];
+    }
     
     @Override
     public String toString(){
