@@ -1,43 +1,17 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package test2;
+package pkg05Calendar;
 
 import java.util.Scanner;
 
 /**
  *
- * @author norbert.roland.kny
+ * @author iakov.timofeev
  */
-public class Test2 {
-
-    /**
-     * @param args the command line arguments
-     */
+public class CalendarApp {
     public static void main(String[] args) {
-        // TODO code application logic here
-        //System.out.println("Hello world");
-        //double pie = Math.PI;
-        //String s = "";
-        //very sus
-        //getDatum ==> datum ==> urci prestupnoat
-        int datum = 1600;
-        boolean prestupny = false;
-        if( (datum % 100 == 0) && (datum % 400 == 0) && (datum % 4 == 0) ){
-            prestupny = true;
-        }
-        System.out.println(prestupny);
-        
-        public static boolean isLeap(int datum) {
-            boolean prestupny = false;
-            if( (datum % 100 == 0) && (datum % 400 == 0) && (datum % 4 == 0) ){
-                prestupny = true;
-            }
-        return prestupny;
-        }
-        
         Scanner sc =new Scanner(System.in);
         System.out.println("Zadej: dd mm rrrr");
         int den = sc.nextInt();int mesic = sc.nextInt();int rok = sc.nextInt();
@@ -67,7 +41,5 @@ public class Test2 {
         
         }while(true);
         //System.out.println(a.isLeap());
-    }
-        
     }
 }
