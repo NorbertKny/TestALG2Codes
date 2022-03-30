@@ -9,7 +9,7 @@ package test2;
  * @author norbert.roland.kny
  */
 public enum Months {
-    JANUARY(1,31), FEBRUARY(2,28/29), DECEMBER(12,31);
+    JANUARY(1,31), FEBRUARY(2,28), DECEMBER(12,31);
     
     private int monthNumber;
     private int daysInMonth;
