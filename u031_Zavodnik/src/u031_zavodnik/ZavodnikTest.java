@@ -18,5 +18,25 @@ public class ZavodnikTest {
         Zavodnik test = new Zavodnik("Petr","Adam");
         System.out.println(test.getName());
         System.out.println(test.getSurname());
+        
+        test.setStartTime(5665);
+        System.out.println(test.getStartTime());
+        System.out.println(test.ReadableStartTime(test.getStartTime()));
+        System.out.println("");
+        test.setFinishTime(8269);
+        System.out.println(test.getFinishTime());
+        System.out.println(test.ReadableFinishTime(test.getFinishTime()));
+        System.out.println("");
+        System.out.println(test.getFinalTime());
+        System.out.println(test.ReadableFinalTime(test.getFinalTime()));
+//        int time = 3672;
+//        int hour = time/3600;
+//        int min = (time%3600)/60;
+//        int sec = time - (hour*3600)-(min*60);
+//        
+//        System.out.println(time);
+//        System.out.println(hour);
+//        System.out.println(min);
+//        System.out.println(sec);
     }
 }

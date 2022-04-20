@@ -5,7 +5,8 @@
 package semestralproject;
 
 import java.util.Scanner;
-
+import java.applet.AudioClip;
+import java.io.BufferedInputStream;
 /**
  *
  * @author norbert.roland.kny

@@ -4,8 +4,11 @@
  */
 package u031_zavodnik;
 
+import java.text.Collator;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
+import java.util.Locale;
 import java.util.NoSuchElementException;
 
 /**
@@ -16,6 +19,12 @@ public class Zavod {
     private ArrayList<Zavodnik> zavodnik;
     private String nameZavod;
     
+    public static final Collator co1 = Collator.getInstance(new Locale("cs", "CZ"));
+    //public static final Comparator<Zavodnik> COMP_BY_NAME = (Zavodnik r1,Zavodnik r2)-> r1.getSurname().compareTo(r2.getSurname());
+    //public static final Comparator<Zavodnik> COMP_BY_NAME = (Zavodnik r1,Zavodnik r2)-> co1.compare(r1.getSurname(),r2.getSurname());
+//    public static final Comparator<Zavodnik> COMP_BY_NAME = (Zavodnik r1, Zavodnik r2) ->(
+//        int value = co1.compare(r1.getSurname(), r2.getSurname());
+//            
     public Zavod(String nameZavod){
         this.nameZavod = nameZavod;
         zavodnik = new ArrayList<>();
@@ -84,6 +93,31 @@ public class Zavod {
         return getZZavodnik();
     }
     
+    private void sortBySurName(){
+        Collections.sort(zavodnik);
+    }
+    
+//    private void sortBySurName(){
+//        Collections.sort(zavodnik,dfdf);
+//    }
+    
+    private void sortByStartNumber(){
+        Collections.sort(zavodnik, (Zavodnik o1,Zavodnik o2)-> o1.getFinalTime()-o2.getFinalTime());
+    }
+    
+    
+    private void sortByFinalTime(){
+        ComparatorZavodnikByFinalTime cbft = new ComparatorZavodnikByFinalTime(); 
+        Collections.sort(zavodnik,cbft);
+    }
+    
+//    private void sortByZavodnik(){
+//        Collections.sort(zavodnik, new Comparator<Zavodnik>());
+//        public int compare(Zavodnik o1, Zavodnik o2){
+//            return o1.getFinalTime() - o2.getFinalTime();
+//        }
+//    }
+   
 //    @Override
 //    public String toString(){
 //        StringBuilder builder = new StringBuilder();

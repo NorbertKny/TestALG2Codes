@@ -21,13 +21,13 @@ public class ZavodApp {
         String input = sc.next();
     }
     
-    public static void printRegistrujZavodnik(){
-        ArrayList<Zavodnik> copy = zavod.sortByName();
-        
-        for (Zavodnik runner : copy){
-            System.out.println("%3d. %10s. %10s. %15s\n", zavodnik.getStartNumber(),zavodnik.get);
-        }
-    }
+//    public static void printRegistrujZavodnik(){
+//        ArrayList<Zavodnik> copy = zavod.sortByName();
+//        
+//        for (Zavodnik runner : copy){
+//            System.out.println("%3d. %10s. %10s. %15s\n", zavodnik.getStartNumber(),zavodnik.get);
+//        }
+//    }
     
     public static void main(String[] args) {
         // TODO code application logic here
