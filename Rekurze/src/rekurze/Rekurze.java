@@ -15,8 +15,11 @@ public class Rekurze {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        
+        System.out.println(factorialkny(5));
+        System.out.println(factorial(5));
+        System.out.println(factorialRecursive(5));
     }
+    
     public static int mystery(int a,int b){ //3,11
         if(b==0){
             return 0;
@@ -48,4 +51,43 @@ public class Rekurze {
     m(3)    = m(1)+con1  ==>11
     m(1)    = 1          ==>1
     */
+    
+    public static int factorial(int n){
+        if(n<0){
+            throw new IllegalArgumentException("Zadana zaporna hodnota");
+        }
+        int number=1;
+        for (int i = 2; i <= n; i++) {
+            number=number*i;
+        }
+        return number;
+    }
+    
+    public static int factorialkny(int n){
+        //n=5;
+        int res=0;
+        for (int i = 0; i < n+1; i++) {
+            res += n*(n-1);
+        }
+        return res;
+    }
+    
+    public static int factorialRecursive(int n){
+        if(n<0){
+            throw new IllegalArgumentException("Zadana zaporna hodnota");
+        };
+        if((n==1)||(n==0)){
+            return 1;
+        };
+        return factorialRecursive(n-1)*n;
+    }
+    
+    public static int max(int[] a,int i){
+        if(a[a.length-2]>a[a.length-1]){
+            i=a.length-2;
+        }else{
+            i=a.length-1;
+        }
+        return max(a,i);
+    }
 }
