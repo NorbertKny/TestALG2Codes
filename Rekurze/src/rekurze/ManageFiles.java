@@ -30,7 +30,8 @@ public class ManageFiles {
     }
     
     public static void main(String[] args) {
-        File in = new File("src");
+        File in = new File(System.getProperty("user.dir"));
+        //System.getProperty("user.dir")
         System.out.println(mf(in,0));
     }
 }
