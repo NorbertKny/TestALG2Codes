@@ -209,21 +209,16 @@ public class ProjectUTILS {
         ArrayList<Integer> errorLines = new ArrayList<>();
         try ( BufferedReader br = new BufferedReader(new FileReader(startFile))) {
             int lineNumber = 1;
-            String line, firstName, lastName;
-            String dob;
-            char gender;
+            String line, Name, Surname;
             String[] parts;
-            Runner r;
+            Pracovnik p;
             br.readLine(); //preskocim hlavicku
             while ((line = br.readLine()) != null) {
                 lineNumber ++;
                 parts = line.split("[ ]+");
-                firstName = parts[0];
-                lastName = parts[1];
-                //dob = Integer.parseInt(parts[2]); 
-                dob = parts[2];
-                gender = parts[3].charAt(0);
-                r = new Runner(firstName, lastName);
+                Name = parts[0];
+                Surname = parts[1];
+                p = new Pracovnik(String name,String surname, int startTime,int finishTime, int finalTime);
                 try{
                     r.setDob(dob);
                 }catch(DateTimeParseException e){
@@ -231,7 +226,7 @@ public class ProjectUTILS {
                     errorLines.add(lineNumber);
                 }
                 r.setGender(gender);
-                runners.add(r);
+                pracovnik.add(p);
             }
         }
         if(!errorLines.isEmpty()){
