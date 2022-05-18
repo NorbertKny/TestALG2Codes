@@ -18,6 +18,8 @@ public class Rekurze {
         System.out.println(factorialkny(5));
         System.out.println(factorial(5));
         System.out.println(factorialRecursive(5));
+        int[] ar ={84,5,8,4,6};
+        System.out.println(max(ar,ar.length));
     }
     
     public static int mystery(int a,int b){ //3,11
@@ -82,12 +84,15 @@ public class Rekurze {
         return factorialRecursive(n-1)*n;
     }
     
-    public static int max(int[] a,int i){
-        if(a[a.length-2]>a[a.length-1]){
-            i=a.length-2;
-        }else{
-            i=a.length-1;
+    public static int max(int[] a,int n){
+        if(n==1){
+            return a[0];
         }
-        return max(a,i);
+        int m = max(a,n-1);
+        if(m>a[n-1]){
+            return m;
+        }else{
+            return a[n-1];
+        }    
     }
 }

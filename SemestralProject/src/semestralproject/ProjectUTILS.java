@@ -4,7 +4,18 @@
  */
 package semestralproject; //class
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeParseException;
+import java.util.ArrayList;
+import java.util.Scanner;
 /**
  *
  * @author norbert.roland.kny
@@ -192,6 +203,68 @@ public class ProjectUTILS {
         copy.finishTime = this.finishTime;
         
         return copy;
+    }
+    
+    public void loadSeznamprac(File startFile) throws FileNotFoundException, IOException {
+        ArrayList<Integer> errorLines = new ArrayList<>();
+        try ( BufferedReader br = new BufferedReader(new FileReader(startFile))) {
+            int lineNumber = 1;
+            String line, firstName, lastName;
+            String dob;
+            char gender;
+            String[] parts;
+            Runner r;
+            br.readLine(); //preskocim hlavicku
+            while ((line = br.readLine()) != null) {
+                lineNumber ++;
+                parts = line.split("[ ]+");
+                firstName = parts[0];
+                lastName = parts[1];
+                //dob = Integer.parseInt(parts[2]); 
+                dob = parts[2];
+                gender = parts[3].charAt(0);
+                r = new Runner(firstName, lastName);
+                try{
+                    r.setDob(dob);
+                }catch(DateTimeParseException e){
+                    r.setDob("2011-02-03");
+                    errorLines.add(lineNumber);
+                }
+                r.setGender(gender);
+                runners.add(r);
+            }
+        }
+        if(!errorLines.isEmpty()){
+            throw new RuntimeException("chyba na radcich " + errorLines.toString());
+        }
+        
+    }
+    
+    public void loadFinish(File finishFile) throws FileNotFoundException{
+        try(Scanner in = new Scanner(finishFile)){
+            //in.useDelimiter(",");
+            int number;
+            String finishTime;
+            in.nextLine();
+            while(in.hasNext()){
+               number = in.nextInt();
+               finishTime = in.next();
+               findRunner(number).setEndTime(finishTime);   
+           } 
+        }
+    }
+    
+    public void saveToFile(File results) throws IOException{
+        try(PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(results)))){
+            //new PrintWriter(new OutputStreamWriter () pouzit, kdyz chci kodovani
+            sortByRunTime();
+            int n = 1;
+            for (Runner runner : runners) {
+               pw.print(n + ". ");
+               pw.println(runner.toString());
+               n++;
+            }
+        }
     }
     
     @Override
