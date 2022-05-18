@@ -1,0 +1,4 @@
+jmeno prijmeni dob gender
+Alice    Mala 2000-12-03 F
+Bob Velky 2001-02-03 M
+Charles Stredny 1999-04 M
